@@ -2,33 +2,29 @@
 #define __MY_QUEUE_TESTS__
 
 #include <test_helpers.h>
+#include "stacks.h"
 
 class StackTests final : public UnitTests
 {
 protected:
     void RunTests() final
     {
-        ADD_TEST(StackTests::LinkedList::singleElementTest);
-        ADD_TEST(StackTests::LinkedList::orderingTest);
+        LinkedListStack<int> ll;
+        VectorStack<int> vec;
+
+        ADD_TEST(StackTests::singleElementTest, ll);
+        ADD_TEST(StackTests::orderingTest, ll);
+        ADD_TEST(StackTests::singleElementTest, vec);
+        ADD_TEST(StackTests::orderingTest, vec);
         ADD_TEST(StackTests::Array::singleElementTest);
         ADD_TEST(StackTests::Array::orderingTest);
-        ADD_TEST(StackTests::Vector::singleElementTest);
-        ADD_TEST(StackTests::Vector::orderingTest);
     }
-// later: overload ADD_TEST to accept an ISTACK object. Make StackTests instantiate a member stack object for
-    // each stack implementation then run the set of tests, passing them a ref to the member object
 private:
-    struct LinkedList
-    {
-        static bool singleElementTest();
-        static bool orderingTest();        
-    };
+
+    static bool singleElementTest(IStack<int>& s);
+    static bool orderingTest(IStack<int>& s);
+
     struct Array
-    {
-        static bool singleElementTest();
-        static bool orderingTest();        
-    };
-    struct Vector
     {
         static bool singleElementTest();
         static bool orderingTest();        

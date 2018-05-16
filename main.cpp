@@ -1,4 +1,6 @@
 #include "unittests.h"
+#include <sstream>
+#include <iostream>
 
 int main() 
 {

@@ -1,11 +1,15 @@
 // STACKS
-// This program contains several implementations of stacks
+// This program contains several implementations of stacks:
+// 1) Linked List
+// 2) Vector
+// 3) Array
 // 
 // NEW PATTERNS/TECHNIQUES IMPLEMENTED
-// 
+// 1) implementations share a virtual base class
+//
 // Author: Chris Lee
-// Date: May 8th, 2018
-// Last Edited: May 8th, 2018
+// Date: May 15thth, 2018
+// Last Edited: May 16thth, 2018
 
 #ifndef __MY_STACK__
 #define __MY_STACK__
@@ -168,6 +172,7 @@ private:
 	std::vector<T> m_data;
 	int m_top;
 };
+
 template<typename T>
 class ArrayStack: public IStack<T>
 {
